@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(cors());
 
 // connection with Mongo Db
-mongoose.connect('mongodb+srv://laibamajeed29:laiba123@cluster0.akmwoyj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+mongoose.connect('mongodb+srv://laibamajeed29:laiba123@cluster0.akmwoyj.mongodb.net/E-Commerce')
   .then(() => console.log('✅ MongoDB connected successfully'))
   .catch(err => console.error('❌ MongoDB connection error:', err));// API Creation
 
