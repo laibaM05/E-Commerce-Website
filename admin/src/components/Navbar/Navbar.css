@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+.admin-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 2rem;
+  background-color: #FFE0E0; /* Dark gray/blue */
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.brand-logo {
+  display: flex;
+  margin-left: 40px;
+  align-items: center;
+  gap: 10rem;
+}
+
+.brand-logo img {
+  /* height: 40px;
+  width: 40px; */
+  object-fit: cover;
+}
+
+.brand-logo span {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    font-weight: 600;
+    color: black;
+}
+
+.admin-profile img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  transition: transform 0.2s ease;
+}
+
+.admin-profile img:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}

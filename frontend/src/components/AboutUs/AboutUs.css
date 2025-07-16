@@ -1,0 +1,156 @@
+:root {
+    --primary-color: #7c1818; 
+    --secondary-color: #ff9595; 
+    --text-dark: #333;
+    --text-medium: #555;
+    --text-light: #777;
+    --background-light: #f9f9f9;
+    --border-color: #eee;
+}
+
+body {
+    margin: 0;
+    line-height: 1.6;
+    font-family: 'Urbanist', sans-serif; /* Keep your chosen font */
+    color: var(--text-dark);
+    background-color: var(--background-light);
+}
+
+.about-container {
+    padding: 80px 30px; /* Increased padding for more breathing room */
+    max-width: 1000px; /* Slightly wider max-width for modern screens */
+    margin: 0 auto;
+    background-color: #fff; /* White background for content area */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Soft shadow for depth */
+    border-radius: 10px; /* Slightly rounded corners */
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 60px; /* More space below header */
+}
+
+.about-header h1 {
+    font-size: 48px; 
+    color: var(--primary-color); 
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 15px; 
+}
+
+.about-header h1::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px; /* Shorter, centered underline */
+    height: 4px;
+    background-color: var(--primary-color); /* Accent color for underline */
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+.about-header h1:hover:after{
+    width: 30%;
+}
+
+.about-header p {
+    font-size: 20px; /* Slightly larger for better readability */
+    color: var(--text-medium);
+    max-width: 700px; /* Constrain width for better line length */
+    margin: 0 auto; /* Center the paragraph */
+}
+
+.about-content section {
+    margin-bottom: 50px; /* Increased spacing between sections */
+    padding: 30px; /* Inner padding for sections */
+    background-color: #fff; /* Keep section backgrounds white, or consider a very subtle alternate */
+    border-left: 5px solid var(--secondary-color); /* Accent border on the left */
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth hover effects */
+}
+
+.about-content section:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Enhanced shadow on hover */
+}
+
+.about-content h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: var(--primary-color); 
+    border-bottom: 2px solid var(--border-color); 
+    padding-bottom: 10px;
+}
+
+.about-content p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text-dark); 
+    margin-bottom: 1em; 
+}
+
+.about-content ul {
+    list-style: none;
+    padding-left: 0;
+    font-size: 17px;
+    color: var(--text-dark);
+}
+
+.about-content li {
+    margin-bottom: 12px;
+    padding-left: 2em;
+    position: relative;
+    display: flex; 
+    align-items: flex-start;
+}
+
+.about-content li::before {
+    content: '\2022'; 
+    color: var(--primary-color); 
+    font-size: 1.2em; 
+    position: absolute;
+    left: 0;
+    top: 0.1em; 
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        padding: 40px 20px;
+    }
+
+    .about-header h1 {
+        font-size: 36px;
+    }
+
+    .about-header p {
+        font-size: 17px;
+    }
+
+    .about-content h2 {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-container {
+        padding: 30px 15px;
+        border-radius: 0; /* No border-radius on very small screens */
+        box-shadow: none; /* No shadow on very small screens */
+    }
+
+    .about-header h1 {
+        font-size: 30px;
+    }
+
+    .about-header p {
+        font-size: 16px;
+    }
+
+    .about-content section {
+        padding: 20px;
+        border-left: none; /* Remove side border on small screens */
+        border-bottom: 3px solid var(--secondary-color); /* Add bottom border instead */
+        border-radius: 0;
+    }
+}

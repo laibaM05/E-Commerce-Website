@@ -1,0 +1,406 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Changed to space-between for better spacing on mobile */
+    padding: 16px;
+    background: #FFE0E0;
+    box-shadow: 0 1px 3px -2px black;
+    position: relative; /* Needed for absolute positioning of mobile menu */
+    z-index: 1000; /* Ensure navbar is on top */
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    /* margin-left: auto; Removed for better mobile alignment */
+    gap: 10px;
+    z-index: 1001; /* Keep logo above mobile menu */
+}
+
+/* Hamburger Icon Styling (Initially hidden on desktop) */
+.hamburger-icon {
+    display: none; /* Hidden by default for desktop */
+    font-size: 28px;
+    cursor: pointer;
+    color: #333;
+    z-index: 1001; /* Keep icon above mobile menu */
+    margin-right: 15px; /* Add some space from logo/left edge */
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 50px;
+    margin-left: auto;
+    color: black;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.nav-menu li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    cursor: pointer;
+}
+
+.nav-menu li:hover {
+    color: maroon;
+}
+
+.nav-menu li.active {
+    color: maroon;
+}
+
+.nav-menu hr {
+    height: 3px;
+    border: none;
+    background: maroon;
+    margin-top: 4px;
+    width: 100%; /* Ensure hr spans full width of li */
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    gap: 6px;
+    margin-left: auto;
+    width: 250px;
+    height: 20px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    padding-left: 10px;
+    flex-grow: 1; /* Allow input to take available space */
+}
+
+.search-box img {
+    margin-left: -8px;
+}
+
+/* No direct .search class in HTML, but keeping it if it refers to the image */
+.search {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 90px;
+    margin-left: auto;
+    gap: 15px;
+}
+
+.icons img:not(.cart) {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    display: block;
+    cursor: pointer;
+}
+
+.cart {
+    width: 30px;
+    height: 30px;
+    padding-top: 4px;
+    cursor: pointer;
+}
+
+.nav-cart-count {
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -30px;
+    margin-left: -25px;
+    font-size: 14px;
+    border-radius: 11px;
+    background: red;
+    color: white;
+}
+
+.nav-noti-count {
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8px;
+    margin-left: -120px;
+    font-size: 14px;
+    border-radius: 11px;
+    background: red;
+    color: white;
+}
+
+.nav-login-signup  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: auto;
+    gap: 12px;
+}
+
+.nav-login-signup button {
+    width: 120px;
+    height: 40px;
+    outline: none;
+    border: 2px solid #7a7a7a;
+    border-radius: 75px;
+    color: #515151;
+    font-size: 20px;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+}
+
+.nav-login-signup button:hover {
+    color: white;
+    background-color: #6797ce;
+    border-color: #6797ce;
+}
+
+/* --- Media Queries for Responsiveness --- */
+
+/* This is the primary mobile media query you're using */
+@media (max-width: 500px) {
+    .navbar {
+        padding: 10px 10px; /* Reduced left/right padding to move things closer to edge */
+        justify-content: flex-start; /* CRITICAL: Align items to the start */
+        gap: 10px; /* Space between hamburger, logo, etc. */
+    }
+
+    .nav-logo {
+        height: 20px; /* Your existing height property */
+        order: -1; /* Keep logo's order just after hamburger */
+        margin-left: 4px; /* Ensures it sits right next to hamburger's margin-right */
+        /* width: auto; Add this if .nav-logo has a fixed width */
+    }
+
+    .nav-logo img {
+        height: 100%; /* Make img fill container */
+        width: auto; /* Ensure width adjusts automatically */
+    }
+
+    .nav-menu .nav-login-signup {
+        /* Keep flex-direction: column; from your existing code */
+        flex-direction: column;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 70%;
+        height: 100%;
+        background: #FFE0E0;
+        box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+        padding: 20px 0;
+        gap: 20px;
+        z-index: 999;
+        
+        /* UPDATED: Keep display: flex, use visibility & opacity for hiding */
+        display: flex; /* Keep it as flex, don't toggle display */
+        visibility: hidden; /* NEW: Hide visually without removing from layout flow */
+        opacity: 0; /* NEW: Start completely transparent */
+
+        transition: transform 0.3s ease-in-out, /* Keep transform transition */
+                    opacity 0.3s ease-in-out, /* NEW: Add opacity transition */
+                    visibility 0.3s ease-in-out; /* NEW: Add visibility transition */
+        
+        transform: translateX(-100%); /* Start off-screen to the left */
+        pointer-events: none; /* Disable interactions when hidden */
+    }
+
+    .nav-menu.open {
+        /* display: flex; REMOVE THIS LINE if you moved display:flex to the base state */
+        visibility: visible; /* NEW: Make visible */
+        opacity: 1; /* NEW: Make fully opaque */
+        transform: translateX(0); /* Slide into view from the left */
+        pointer-events: all; /* Enable interactions when open */
+    }
+
+
+    /* BLOCK 5: .nav-menu li */
+    .nav-menu li {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #eee; /* Add separator for menu items */
+    }
+    .nav-menu li:last-child {
+        border-bottom: none;
+    }
+    .nav-menu li hr { /* Adjust hr for mobile menu */
+        display: none; /* Hide hr for now, can be styled if needed */
+    }
+    .nav-menu li.active hr {
+      display: block; /* Show active indicator if desired */
+      width: 50%; /* Make it shorter */
+      margin: 5px auto 0; /* Center it */
+    }
+
+    .hamburger-icon {
+        display: block; /* CRITICAL: Ensure visibility on mobile */
+        order: -2; /* Place at the very beginning */
+        font-size: 20px; /* From your commented 500px query */
+        margin-right: 5px; /* Added/Adjusted: Small gap between hamburger and logo */
+    }
+
+    .search-box {
+        display: flex;
+        align-items: center; /* Ensure vertical centering of children */
+        background-color: #f8f8f8;
+        padding: 0px 10px; /* <--- CRITICAL CHANGE: Remove vertical padding from here */
+        border-radius: 20px;
+        border: 1px solid #ccc;
+        gap: 6px;
+        
+        height: 30px; /* <--- NEW: Explicitly set a height for the search box */
+        width: 200px;
+        flex-grow: 1;
+        max-width: none;
+        
+        margin-left: 10px;
+        order: 1;
+    }
+
+    .search-box img{
+        width: 40px;
+        height: 40px;
+    }
+
+    .search-box input {
+        border: none;
+        outline: none;
+        background: transparent;
+        font-size: 14px;
+        padding: 0; /* Keep padding at 0 here */
+        flex-grow: 1;
+        height: 100%; /* <--- NEW: Make input fill the height of its parent (.search-box) */
+        line-height: normal; /* <--- NEW: Ensure normal line height */
+        box-sizing: border-box; /* <--- NEW: Include padding/border in height calculation if they were added later */
+    }
+
+    .icons {
+        margin-left: auto; /* Pushes the icons to the far right */
+        order: 2; /* Ensures it comes after search-box */
+        gap: 0px;
+    }
+
+    .icons img:not(.cart) {
+        display: none; /* Keeping hidden as per your image */
+    }
+
+    .cart {
+        width: 30px;
+        height: 30px;
+        padding-top: 10px;
+        padding-right: 0;
+        margin-left: 25px; /* Space between search-box and cart icon */
+    }
+
+    .nav-cart-count {
+        font-size: 10px;
+        width: 14px;
+        height: 14px;
+        display: flex; /* Ensure it's a flex container for centering */
+        justify-content: center; /* Center content horizontally */
+        align-items: center; /* Center content vertically */
+        border-radius: 11px;
+        background: red;
+        color: white;
+        
+        margin-top: -22px; /* <--- Adjusted: Move up slightly more */
+        margin-left: -14px; /* <--- Adjusted: Move left slightly more for tighter fit */
+    }
+
+    .nav-noti-count { /* Specific adjustment for notification count */
+        display: none; /* CRITICAL: Show notification count */
+        /* font-size: 10px; /* From your commented 500px query */
+        /* width: 14px; /* From your commented 500px query */
+        /* height: 14px; /* From your commented 500px query */
+        /* margin-top: -15px; /* Aligns with cart count */
+        /* margin-left: -12px; Adjusted: Closer to notification icon */
+    }
+
+    .mobile-only {
+        display: flex; /* ✅ Now it will appear */
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding-top: 10px;
+    }
+    .desktop-only{
+        display: none;
+    }
+}
+
+/* The commented out @media (max-width: 500px) block at the end is removed */
+
+/* @media (max-width: 500px) {
+    .navbar {
+        padding: 8px 15px;
+    }
+
+    .nav-logo img {
+        height: 35px;
+    }
+
+    .hamburger-icon {
+        font-size: 24px;
+    }
+
+    .search-box {
+        padding: 6px 8px;
+        height: 18px;
+        font-size: 14px;
+    }
+    .search-box input {
+        font-size: 14px;
+    }
+
+    .icons {
+        gap: 8px;
+    }
+
+    .icons img:not(.cart) {
+        width: 20px;
+        height: 20px;
+    }
+
+    .cart {
+        width: 22px;
+        height: 22px;
+    }
+
+    .nav-cart-count, .nav-noti-count {
+        font-size: 10px;
+        width: 14px;
+        height: 14px;
+        margin-top: -15px;
+        margin-left: -10px;
+    }
+    .nav-noti-count {
+        margin-left: -60px;
+    }
+
+    .nav-login-signup button {
+        width: 100px;
+        height: 35px;
+        font-size: 16px;
+    }
+} */

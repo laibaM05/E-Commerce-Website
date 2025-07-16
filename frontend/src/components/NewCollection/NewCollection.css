@@ -1,0 +1,45 @@
+.Collection {
+  background-color: #FDC9C9; /* light pink background */
+  text-align: center;
+  padding: 20px 20px;
+  font-family: 'Poppins', sans-serif;
+  align-items: center;
+  /* height: 80%; */
+}
+
+.Collection h1 {
+  font-size: 50px;
+  font-weight: 600;
+  font-family: 'Rozha One', serif;
+  letter-spacing: 1px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.Collection p {
+  font-size: 20px;
+  font-family: 'Rozha One', serif;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.Collection button{
+    background-color: black;
+    border-radius: 10px;
+    border: 2px , solid black;
+    color: white;
+    width: 192px;
+    height: 55px;
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.Collection button:hover {
+    color: black;
+    background-color: white;
+    border-color: black;
+}

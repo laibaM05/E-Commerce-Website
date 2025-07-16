@@ -1,0 +1,229 @@
+/* Importing fonts for consistency with your previous styles */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,700&family=Urbanist:wght@300;400;500;600;700&display=swap');
+/* Assuming you might use Kaushan Script for titles if Playfair Display is not matching */
+/* @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap'); */
+
+.women-collection-page {
+    font-family: 'Urbanist', sans-serif;
+    padding: 20px;
+    background-color: #f8f8f8; /* Light background as seen in the image */
+    color: #333;
+}
+
+.collection-header {
+    display: flex;
+    justify-content: space-between; /* Spreads items across */
+    align-items: center; /* Aligns vertically */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    max-width: 1200px;
+    margin: 0 auto 40px auto; /* Center and add bottom margin */
+    padding: 20px 0; /* Some vertical padding */
+    position: relative; /* For the absolute positioning of elements */
+}
+
+.collection-title {
+    font-family: 'Playfair Display', serif; /* Or 'Kaushan Script' if that's your preferred heading font */
+    font-style: italic;
+    font-weight: 700;
+    font-size: 2.5rem; /* Larger font for the main title */
+    color: #000;
+    text-align: center;
+    width: 100%; /* Take full width to center itself */
+    margin-bottom: 20px; /* Space below the title */
+    order: 1; /* Ensure it appears first */
+}
+
+.products-available {
+    font-size: 0.9rem;
+    color: #555;
+    order: 2; /* Appears after title, before dropdown on first row */
+}
+
+.sort-by-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    order: 3; /* Appears last on the first row */
+}
+
+.sort-by-dropdown label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.sort-by-dropdown select {
+    padding: 8px 12px;
+    border: 1px solid black;
+    border-radius: 4px;
+    background-color: #fff;
+    font-family: 'Urbanist', sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    appearance: none; /* Remove default arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-6.5%200-12.3%203.2-16.1%208.1-3.9%204.9-3.9%2011.6%200%2016.5l128%20127.9c3.9%203.9%2010.2%203.9%2014.1%200L287%2085.9c3.9-4.9%203.9-11.6%200-16.5z%22%2F%3E%3C%2Fsvg%3E'); /* Custom dropdown arrow */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
+}
+
+.sort-by-dropdown select:focus {
+    outline: none;
+    border-color: black;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 30px; /* Space between product cards */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 50px; /* Space above the footer if the footer is fixed/sticky */
+}
+
+.product-card {
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease-in-out;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+    width: 100%;
+    height: 300px; /* Fixed height for images to ensure consistency */
+    object-fit: cover; /* Covers the area without distortion */
+    display: block;
+}
+
+.product-info {
+    padding: 15px;
+    text-align: center; /* Center the description and price */
+}
+
+.product-rating {
+    color: #ffc107; /* Star color */
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.product-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    height: 40px; /* Limit height for consistency to avoid layout shifts */
+    overflow: hidden; /* Hide overflow text */
+    display: -webkit-box; /* For multi-line ellipsis */
+    -webkit-line-clamp: 2; /* Limit to 2 lines */
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis; /* Add ellipsis if text overflows */
+}
+
+.product-price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #333;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+    .collection-header {
+        flex-direction: column; /* Stack header items */
+        align-items: flex-start; /* Align to left */
+        margin-bottom: 30px;
+        padding: 15px 20px;
+    }
+    .collection-title {
+        font-size: 2rem;
+        margin-bottom: 15px;
+        text-align: left; /* Align title to left */
+    }
+    .products-available {
+        order: 2; /* After title */
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .sort-by-dropdown {
+        order: 3; /* After products available */
+        width: 100%;
+        justify-content: flex-start; /* Align dropdown to left */
+    }
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .product-image {
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .women-collection-page {
+        padding: 15px;
+    }
+    .collection-header {
+        padding: 10px 15px;
+        margin-bottom: 25px;
+    }
+    .collection-title {
+        font-size: 1.8rem;
+    }
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .product-image {
+        height: 220px;
+    }
+    .product-info {
+        padding: 10px;
+    }
+    .product-description {
+        font-size: 0.85rem;
+        height: 35px; /* Adjust height slightly for smaller text */
+    }
+}
+
+@media (max-width: 480px) {
+    .women-collection-page {
+        padding: 10px;
+    }
+    .collection-header {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+    .collection-title {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .products-available,
+    .sort-by-dropdown {
+        width: auto; /* Allow them to shrink to content */
+        justify-content: center; /* Center them */
+        margin-bottom: 10px;
+    }
+    .product-grid {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+        gap: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .product-image {
+        height: 200px;
+    }
+}

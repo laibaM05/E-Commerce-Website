@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600&display=swap');
+
+.add-product-container {
+  max-width: 480px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff0f0;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(255, 192, 203, 0.3);
+  font-family: 'Urbanist', sans-serif;
+  color: #660000;
+}
+
+.add-product-title {
+  text-align: center;
+  font-weight: 600;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #b30000;
+}
+
+.add-product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.add-product-form label {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #b30000;
+}
+
+.add-product-form input[type="text"],
+.add-product-form input[type="number"],
+.add-product-form select,
+.add-product-form textarea,
+.add-product-form input[type="file"] {
+  padding: 0.6rem 0.8rem;
+  border: 2px solid #ffc4c4;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #660000;
+  background-color: #fff0f0;
+  transition: border-color 0.3s ease;
+}
+
+.add-product-form input[type="text"]:focus,
+.add-product-form input[type="number"]:focus,
+.add-product-form select:focus,
+.add-product-form textarea:focus,
+.add-product-form input[type="file"]:focus {
+  outline: none;
+  border-color: #b30000;
+  background-color: #ffe6e6;
+}
+
+.add-product-form textarea {
+  resize: vertical;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.submit-btn {
+  margin-top: 1.5rem;
+  padding: 0.9rem;
+  background-color: #cc0000;
+  color: white;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(204, 0, 0, 0.4);
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #b30000;
+}
