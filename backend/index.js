@@ -12,9 +12,9 @@ app.use(express.json());
 app.use(cors());
 
 // connection with Mongo Db
-mongoose.connect("mongodb+srv://laibamajeed29:laiba123@cluster0.akmwoyj.mongodb.net/E-Commerce")
-
-// API Creation
+mongoose.connect('mongodb+srv://laibamajeed29:laiba123@cluster0.akmwoyj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+  .then(() => console.log('✅ MongoDB connected successfully'))
+  .catch(err => console.error('❌ MongoDB connection error:', err));// API Creation
 
 app.get("/", (req,res)=>{
     res.send("Express App is Running")
@@ -37,7 +37,7 @@ app.use('/images', express.static('upload/images'))
 app.post("/upload", upload.single('product'), (req,res)=>{
     res.json({
         success: 1,
-        image_url: `${port}/images/${req.file.filename}`
+        image_url: `${req.protocol}://${req.get("host")}/images/${req.file.filename}`
     })
 })
 
