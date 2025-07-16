@@ -1,0 +1,260 @@
+/* Importing a font that resembles the "Fashion Store" logo font, or use Urbanist */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,700&family=Urbanist:wght@300;400;500;600;700&display=swap');
+
+/* Define basic color variables for the footer theme */
+:root {
+    --footer-bg-color: #000000; /* Deep black */
+    --footer-text-color: #F8F8F8; /* Off-white for readability */
+    --footer-heading-color: #FFFFFF; /* Pure white for headings */
+    --footer-link-hover-color: #ff9595; /* Your accent color for hover */
+    --footer-border-color: #333333; /* Darker border for separation */
+    --logo-font: 'Kaushan Script', serif; /* A more elegant font for the logo */
+    --body-font: 'Urbanist', sans-serif; /* Your main body font */
+}
+
+.main-footer {
+    background-color: var(--footer-bg-color);
+    color: var(--footer-text-color);
+    margin-top: 100px;
+    padding: 80px 20px 20px; /* Top, sides, bottom padding */
+    font-family: var(--body-font);
+    position: relative; /* For the absolute positioning of the brand logo */
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap; /* Allows sections to wrap on smaller screens */
+    justify-content: space-between; /* Distributes sections evenly */
+    max-width: 1200px; /* Aligns with your previous max-width */
+    margin: 0 auto;
+    position: relative; /* For children absolute positioning */
+    padding-right: 40px;
+}
+
+/* Specific styling for the brand logo in the top right */
+.footer-brand-logo {
+    position: absolute;
+    top: 0; /* Aligned to the top of footer-content */
+    right: 0;
+    margin-right: 20px; /* Match right padding of main-footer */
+    transform: translateY(-50%); /* Adjust vertically to be centered with implicit top line */
+}
+
+.footer-brand-logo .brand-name {
+    font-family: var(--logo-font); /* Apply the elegant font */
+    font-style: italic; /* Match the italic look */
+    font-weight: 700; /* Bold for prominence */
+    font-size: 32px; /* Larger size for impact */
+    color: var(--footer-heading-color);
+}
+
+
+.footer-section {
+    flex: 1; /* Allows sections to grow and shrink */
+    min-width: 180px; /* Minimum width before wrapping */
+    margin-bottom: 40px; /* Space between sections when wrapped */
+    padding-right: 25px; /* Some padding between columns */
+    margin-top: 40px;
+}
+
+.footer-heading {
+    color: var(--footer-heading-color);
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    letter-spacing: 0.05em; /* Slightly more spaced out */
+    text-transform: uppercase;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px; /* Space between links */
+}
+
+.footer-links a {
+    color: var(--footer-text-color);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--footer-link-hover-color);
+    text-decoration: underline;
+}
+
+/* Specifics for "CAN WE HELP YOU?" section */
+.help-you .email-address {
+    font-size: 0.95rem;
+    color: var(--footer-text-color);
+    margin-top: 5px;
+    margin-bottom: 15px; /* Space below email address */
+}
+
+.help-you .footer-email {
+    font-weight: 500; /* Make "Send Email" stand out slightly */
+}
+
+.footer-email::after {
+  content: '';
+  position: absolute;
+  width: 20%;
+  height: 2px;
+  background-color: white;
+  bottom: 218px;
+  left: -2px;
+}
+
+.payment-methods {
+    margin-top: 30px; /* Space above payment methods */
+}
+
+.payment-heading {
+    color: var(--footer-heading-color);
+    font-size: 1rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.payment-heading::after {
+  content: '';
+  position: absolute;
+  width: 20%;
+  height: 2px;
+  background-color: white;
+  bottom: 85px;
+  left: -2px;
+}
+
+.payment-logos {
+    display: flex;
+    gap: 10px; /* Space between logos */
+    align-items: center; /* Vertically align logos */
+}
+
+.visalogo {
+    height: 15px; /* Adjust height as needed for your actual images */
+    width: auto;
+    opacity: 1; /* Slight transparency for consistency */
+    transition: opacity 0.3s ease;
+}
+.mastercardlogo {
+    height: 35px; /* Adjust height as needed for your actual images */
+    width: auto;
+    opacity: 1; /* Slight transparency for consistency */
+    transition: opacity 0.3s ease;
+}
+.unionpaylogo {
+    height: 25px; /* Adjust height as needed for your actual images */
+    width: auto;
+    opacity: 1; /* Slight transparency for consistency */
+    transition: opacity 0.3s ease;
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--footer-border-color); /* Separator line */
+    padding-top: 20px;
+    margin-top: 40px; /* Space above the border */
+    text-align: center;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.copyright-text {
+    font-size: 0.85rem;
+    color: var(--footer-text-color);
+    opacity: 0.7; /* Slightly dimmer for copyright */
+}
+
+.copyright-text a {
+    color: var(--footer-link-hover-color); /* Highlight for "Mean3 Pvt Ltd." */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.copyright-text a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 1024px) {
+    .footer-content {
+        justify-content: flex-start; /* Align columns to start */
+    }
+    .footer-section {
+        min-width: 160px; /* Allow narrower columns */
+        flex-basis: 30%; /* Roughly three columns */
+    }
+    .footer-brand-logo {
+        position: static;
+        text-align: center;
+        margin-bottom: 30px;
+        transform: none; /* Reset transform */
+        width: 100%; /* Take full width */
+    }
+    .footer-brand-logo .brand-name {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-footer {
+        padding: 40px 20px 15px;
+    }
+    .footer-section {
+        flex-basis: 45%; /* Two columns per row */
+        margin-bottom: 30px;
+    }
+    .footer-heading {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+    .footer-links a,
+    .help-you .email-address,
+    .payment-heading {
+        font-size: 0.9rem;
+    }
+    .payment-logo {
+        height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-footer {
+        padding: 30px 15px 10px;
+    }
+    .footer-content {
+        flex-direction: column; /* Stack all sections vertically */
+        align-items: center; /* Center align sections */
+    }
+    .footer-section {
+        width: 100%; /* Full width */
+        max-width: 300px; /* Optional: limit width on tiny screens for readability */
+        padding-right: 0;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    .footer-links {
+        text-align: center; /* Center align links */
+    }
+    .footer-links li {
+        margin-bottom: 10px;
+    }
+    .payment-logos {
+        justify-content: center; /* Center payment logos */
+    }
+
+    .footer-bottom {
+        margin-top: 30px;
+        padding-top: 15px;
+    }
+    .copyright-text {
+        font-size: 0.75rem;
+    }
+}
