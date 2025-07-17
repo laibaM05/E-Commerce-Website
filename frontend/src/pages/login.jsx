@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./login.css";
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -65,7 +66,7 @@ const Login = () => {
           {success && <p className="success">{success}</p>}
           <button type="submit">Login</button>
           <p className="signup-link">
-            Don’t have an account? <a href="/signup">Sign up</a>
+            Don’t have an account? <Link style = {{textDecoration: 'none'}} to="/signup">Sign up</Link>
           </p>
         </form>
       </div>
